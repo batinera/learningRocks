@@ -8,4 +8,4 @@ import { ContentRepository } from "./content.repository";
     controllers: [ContentController],
     providers: [ContentService, ContentRepository]
 })
-export class ContentModule {}
+export class ContentModule { }

@@ -6,12 +6,7 @@ import { Content } from "@prisma/client";
 // definindo que minha classe ContentService é um provider
 @Injectable()
 export class ContentService {
-    // injetando meu ContentRepository no construtor
     constructor(private contentRepository: ContentRepository) { }
-    /* método(parâmetro:tipo): tipo_de_retorno*/
-    createContent(dto: ContentDto): Promise<Content> {
-        return this.contentRepository.createContent(dto)
-    }
 
     getAll(): Promise<Content[]> {
         return this.contentRepository.getAll()
@@ -21,16 +16,19 @@ export class ContentService {
         return this.contentRepository.getById(id)
     }
 
-    deleteById(id: number,): Promise<Content> {
-        return this.contentRepository.deleteById(id)
+    createContent(dto: ContentDto): Promise<Content> {
+        return this.contentRepository.createContent(dto)
     }
 
     updateContent(id: number, dto: ContentDto): Promise<Content> {
         return this.contentRepository.updateContent(id, dto)
     }
 
-}
+    async deleteById(id: number,): Promise<void> {
+        await this.contentRepository.deleteById(id)
+    }
 
+}
 
 //assinatura do método
 //método(parâmetro: tipo): tipo_retorno
