@@ -29,6 +29,3 @@ export class ContentService {
     }
 
 }
-
-//assinatura do método
-//método(parâmetro: tipo): tipo_retorno
